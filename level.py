@@ -15,6 +15,7 @@ class Level:
                 row.append('X')
             self.tiles.append(row)
         self.screen = screen
+        self.tile_img=pygame.image.load('assets/tile2.png')
 
     def set_tile(self, x_pos, y_pos, tile_type):
         self.tiles[y_pos][x_pos] = tile_type
@@ -26,7 +27,7 @@ class Level:
                     # Initializing Color
                     color = (48, 141, 70)
                     # Drawing Rectangle
-                    x_offset = x_pos * 34
-                    y_offset = y_pos * 34
-                    pygame.draw.rect(self.screen, color, pygame.Rect(x_offset+2, y_offset+2, 30, 30),  2, 3)
+                    x_offset = x_pos * 32
+                    y_offset = y_pos * 32
+                    self.screen.blit(self.tile_img,(x_offset, y_offset))
                 
