@@ -19,8 +19,8 @@ hero.draw()
 
 # Game loop
 running = True
-xmove=0
-ymove=0
+speed=0
+rotation=0
 
 while running:
     for event in pygame.event.get():
@@ -29,25 +29,25 @@ while running:
         if event.type == pygame.KEYDOWN:
 
             if event.key == pygame.K_LEFT:  
-                xmove=  -1
+                rotation = 1
             elif event.key == pygame.K_RIGHT:  
-                xmove = 1  # object moves 0.3 towards x axis
+                rotation = -1
             elif event.key == pygame.K_UP: 
-                ymove = -1  # object moves -0.3 towards y axis
+                speed = -1
             elif event.key == pygame.K_DOWN: 
-                ymove = 1  # object moves 0.3 towards y axis
+                speed = 1
 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:  
-                xmove=  0
+                rotation =  0
             elif event.key == pygame.K_RIGHT:  
-                xmove = 0  # object moves 0.3 towards x axis
+                rotation = 0  
             elif event.key == pygame.K_UP: 
-                ymove = 0  # object moves -0.3 towards y axis
+                speed = 0  # object moves -0.3 towards y axis
             elif event.key == pygame.K_DOWN: 
-                ymove = 0  # object moves 0.3 towards y axis
+                speed = 0  # object moves 0.3 towards y axis
 
-    hero.move(xmove, ymove)
+    hero.move(rotation, speed)
     dungeon_level.draw()
     hero.draw()
 
