@@ -1,6 +1,6 @@
 import pygame
-from level import Level
-from hero import Hero
+from app.level import Level
+from app.hero import Hero
 
 # Initialize Pygame
 pygame.init()
